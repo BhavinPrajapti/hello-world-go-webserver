@@ -46,17 +46,6 @@ docker run -p 8080:8080 hello-world
 ```
 This command maps port 8080 on your host machine to port 8080 in the container, making the web server accessible from your browser or any HTTP client.
 
-i already built and push this image to my refistry. you can also run container by following commands:
-
-for pulling image from my registry
-
-```sh
-docker pull bhavinprajapti/hello-world-go:1.0
-```
-```sh
-docker run -p 8080:8080 bhavinprajapti/hello-world-go:1.0
-```
-
 ### Access the Web Server
 
 Once the container is running, access the web server by navigating to the following URL in your web browser:
