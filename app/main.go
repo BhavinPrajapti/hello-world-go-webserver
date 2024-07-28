@@ -16,7 +16,7 @@ func main() {
 	http.HandleFunc("/", helloWorldHandler)
 
 	// Print a message indicating the server is starting on port 8080.
-	fmt.Println("Starting server at port 8080")
+	fmt.Println("Starting "Hello World" webserver...")
 
 	// Start the HTTP server on port 8080 and log any errors if the server fails to start.
 	if err := http.ListenAndServe(":8080", nil); err != nil {
