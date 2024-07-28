@@ -7,7 +7,7 @@ This project demonstrates a self-contained deployment of a simple Go web server 
 ## Project Structure
 
 ```
-hello-world-webserver/
+hello-world-webserver-main/
 ├── Dockerfile       # Dockerfile for building the Docker image
 ├── README.md        # Documentation file
 ├── app/
