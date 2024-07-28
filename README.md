@@ -108,11 +108,17 @@ kubectl apply -f service.yaml
 
 ### Access the Web Server
 
-Once the service is created, it will provision an external IP address. You can get the external IP using:
+Once the service is created, you can get the NodePort assigned to the service using:
 
 ```sh
 kubectl get services
 ```
+Look for the `PORT(S)` column for the `hello-world-service` service. It will display something like `80:<NodePort>`.
+Find the IP address of one of your nodes (you can use `kubectl get nodes -o wide`), then open your web browser and navigate to:
 
-Look for the `EXTERNAL-IP` column for the `hello-world-service` service. Open your web browser and navigate to the external IP. You should see "Hello World" displayed.
+```sh
+http://<Node_IP>:<NodePort>
+```
+
+You should see "Hello World" displayed.
 
