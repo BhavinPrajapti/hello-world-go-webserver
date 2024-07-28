@@ -34,7 +34,7 @@ To build and run this project, you need the following software installed on your
 Build the Docker image using the following command:
 
 ```sh
-docker build -t hello-world .
+docker build -t hello-world-go .
 ```
 
 ### Run the Docker Container
@@ -42,7 +42,7 @@ docker build -t hello-world .
 Run the Docker container using the following command:
 
 ```sh
-docker run -p 8080:8080 hello-world
+docker run -p 8080:8080 hello-world-go
 ```
 This command maps port 8080 on your host machine to port 8080 in the container, making the web server accessible from your browser or any HTTP client.
 
