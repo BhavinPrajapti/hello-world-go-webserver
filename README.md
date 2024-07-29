@@ -122,3 +122,29 @@ http://<Node_IP>:<NodePort>
 
 You should see "Hello World" displayed.
 
+## k3s Installation and Deploy application
+This section guides you through installing K3s, a lightweight Kubernetes distribution, and deploying the application on it.
+
+## Setup
+
+1. copy the `installAndDeploy.sh` into a directory on your local machine.
+2. Navigate to the project directory.
+
+### Running the Script
+
+1. Make the script executable:
+```sh
+chmod +x installAndDeploy.sh
+```
+
+2.  Run the script:
+```sh
+./installAndDeploy.sh
+```
+
+You should see "Hello World" displayed.
+
+   
+
+
+
