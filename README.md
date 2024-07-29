@@ -8,14 +8,15 @@ This project demonstrates a self-contained deployment of a simple Go web server 
 
 ```
 hello-world-webserver-main/
-├── Dockerfile       # Dockerfile for building the Docker image
-├── README.md        # Documentation file
+├── Dockerfile           # Dockerfile for building the Docker image
+├── README.md            # Documentation file
 ├── app/
-│   ├── main.go      # Go source code for the web server
-│   ├── go.mod       # The Go module file that manages dependencies
+│   ├── main.go          # Go source code for the web server
+│   ├── go.mod           # The Go module file that manages dependencies
 ├── k8s/
 │   ├── deployment.yaml  # Kubernetes Deployment file
 │   └── service.yaml     # Kubernetes Service file
+├── installAndDeploy.sh  # Script to install K3s and deploy the application
 ```
 
 ## Prerequisites
@@ -125,7 +126,7 @@ You should see "Hello World" displayed.
 ## k3s Installation and Deploy application
 This section guides you through installing K3s, a lightweight Kubernetes distribution, and deploying the application on it.
 
-## Setup
+### Setup
 
 1. copy the `installAndDeploy.sh` into a directory on your local machine.
 2. Navigate to the project directory.
