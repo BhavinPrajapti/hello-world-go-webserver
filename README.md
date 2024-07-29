@@ -126,6 +126,11 @@ You should see "Hello World" displayed.
 ## k3s Installation and Deploy application
 This section guides you through installing K3s, a lightweight Kubernetes distribution, and deploying the application on it.
 
+### Prerequisites
+
+- A Unix-based system.
+- Sudo privileges.
+
 ### Setup
 
 1. copy the `installAndDeploy.sh` into a directory on your local machine.
