@@ -11,6 +11,7 @@ hello-world-webserver-main/
 ├── Dockerfile                                 # Dockerfile for building the Docker image
 ├── hello-world-deployment-improvements        # Files for improving a Kubernetes deployment 
 ├── README.md                                  # Documentation file
+├── README.pdf                                 # Documentation file in pdf
 ├── app/
 │   ├── main.go                                # Go source code for the web server
 │   ├── go.mod                                 # The Go module file that manages dependencies
