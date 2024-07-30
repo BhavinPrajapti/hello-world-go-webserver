@@ -1,0 +1,9 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: hello-world-pdb
+spec:
+  minAvailable: 2 # Ensure at least 2 pods are available at any time
+  selector:
+    matchLabels:
+      app: hello-world

@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world-deployment
+spec:
+  replicas: 3 # Increased replicas for higher availability
+  selector:
+    matchLabels:
+      app: hello-world
+  strategy:
+    type: RollingUpdate # Use rolling update strategy
+    rollingUpdate:
+      maxUnavailable: 1 # Allow only 1 pod to be unavailable during updates
+      maxSurge: 1 # Allow 1 additional pod to be created during updates
+  template:
+    metadata:
+      labels:
+        app: hello-world
+    spec:
+      containers:
+      - name: hello-world
+        image: bhavinprajapti/ha-hello-world:1.0
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: "100m" # Request minimum CPU resources
+            memory: "128Mi" # Request minimum memory resources
+          limits:
+            cpu: "500m" # Limit maximum CPU usage
+            memory: "256Mi" # Limit maximum memory usage
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 10 # Wait 10 seconds before starting liveness checks
+          periodSeconds: 10 # Check liveness every 10 seconds
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 8080
+          initialDelaySeconds: 5 # Wait 5 seconds before starting readiness checks
+          periodSeconds: 10 # Check readiness every 10 seconds

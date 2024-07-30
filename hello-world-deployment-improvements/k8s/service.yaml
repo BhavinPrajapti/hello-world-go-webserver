@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-world-service
+spec:
+  type: NodePort # Use NodePort to expose service on each node's IP
+  selector:
+    app: hello-world
+  ports:
+    - protocol: TCP
+      port: 80 # Expose service on port 80
+      targetPort: 8080 # Forward to container port 8080
