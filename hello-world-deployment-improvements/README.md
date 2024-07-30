@@ -105,9 +105,10 @@ CMD ["./hello-world"]
 ```
 
 
-## k8s Configuration Changes
+## Kubernetes Configuration Changes
 
-### Updated deployment.yaml configurations
+### Updated Deployment Configuration
+
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -154,7 +155,8 @@ spec:
           periodSeconds: 10 # Check readiness every 10 seconds
 ```
 
-### service.yaml configurations
+### Service Configuration
+
 ```yaml
 apiVersion: v1
 kind: Service
@@ -169,7 +171,8 @@ spec:
       port: 80 # Expose service on port 80
       targetPort: 8080 # Forward to container port 8080
 ```
-### pdb.yaml configurations
+### Pod Disruption Budget Configuration
+
 ```yaml
 apiVersion: policy/v1
 kind: PodDisruptionBudget
@@ -191,27 +194,33 @@ This section guides you through installing K3s, a lightweight Kubernetes distrib
 
 ### Setup
 
-1. copy the `installAndDeploy.sh` into a directory on your local machine.
+1. copy the `installAndDeploy2.sh` into a directory on your local machine.
 2. Navigate to the project directory.
 
 ### Running the Script
 
 1. Make the script executable:
 ```sh
-chmod +x installAndDeploy.sh
+chmod +x installAndDeploy2.sh
 ```
 
 2.  Run the script:
 ```sh
-./installAndDeploy.sh
+./installAndDeploy2.sh
 ```
 
 You should see "Hello World" displayed.
 
 3.  Access Logs:
-View the application logs to monitor probe hits and other activities.
 ```sh
 sudo kubectl logs <pod-name>
 ```
 You should see log entries indicating when the liveness and readiness probes are hit.
 
+4. verify probe status:
+Check that the application responds correctly to /health and /ready endpoints to ensure that probes are working as expected.
+```sh
+curl http://<Node_IP>:<NodePort>/ready
+curl http://<Node_IP>:<NodePort>/health
+```
+You should see "OK" displayed, which indicates that the probes are functioning correctly.
