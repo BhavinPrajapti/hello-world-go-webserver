@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-world-deployment
+  name: hello-world2-deployment
 spec:
   replicas: 3 # Increased replicas for higher availability
   selector:
     matchLabels:
-      app: hello-world
+      app: hello-world2
   strategy:
     type: RollingUpdate # Use rolling update strategy
     rollingUpdate:
@@ -15,10 +15,10 @@ spec:
   template:
     metadata:
       labels:
-        app: hello-world
+        app: hello-world2
     spec:
       containers:
-      - name: hello-world
+      - name: hello-world2
         image: bhavinprajapti/ha-hello-world:1.0
         ports:
         - containerPort: 8080
