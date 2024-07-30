@@ -59,8 +59,7 @@ func main() {
 
     // Start the HTTP server on port 8080 and log any errors if the server fails to start.
     if err := http.ListenAndServe(":8080", nil); err != nil {
-        log.Fatalf("Error starting server: %s
-", err)
+        log.Fatalf("Error starting server: %s", err)
     }
 }
 ```
