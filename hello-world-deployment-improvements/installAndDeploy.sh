@@ -24,12 +24,12 @@ cat <<EOF > deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-world-deployment
+  name: hello-world2-deployment
 spec:
   replicas: 3 # Increased replicas for higher availability
   selector:
     matchLabels:
-      app: hello-world
+      app: hello-world2
   strategy:
     type: RollingUpdate # Use rolling update strategy
     rollingUpdate:
@@ -38,10 +38,10 @@ spec:
   template:
     metadata:
       labels:
-        app: hello-world
+        app: hello-world2
     spec:
       containers:
-      - name: hello-world
+      - name: hello-world2
         image: bhavinprajapti/ha-hello-world:1.0
         ports:
         - containerPort: 8080
@@ -70,11 +70,11 @@ cat <<EOF > service.yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: hello-world-service
+  name: hello-world2-service
 spec:
   type: NodePort # Use NodePort to expose service on each node's IP
   selector:
-    app: hello-world
+    app: hello-world2
   ports:
     - protocol: TCP
       port: 80 # Expose service on port 80
@@ -85,12 +85,12 @@ cat <<EOF > pdb.yaml
 apiVersion: policy/v1
 kind: PodDisruptionBudget
 metadata:
-  name: hello-world-pdb
+  name: hello-world2-pdb
 spec:
   minAvailable: 2 # Ensure at least 2 pods are available at any time
   selector:
     matchLabels:
-      app: hello-world
+      app: hello-world2
 EOF
 
 # Apply Kubernetes configurations
@@ -101,7 +101,7 @@ sudo kubectl apply -f pdb.yaml
 
 # Wait for the deployment to be ready
 echo "Waiting for the deployment to be ready..."
-if sudo kubectl wait --for=condition=available deployment/hello-world-deployment --timeout=300s; then
+if sudo kubectl wait --for=condition=available deployment/hello-world2-deployment --timeout=300s; then
   echo "Deployment is available and ready."
 else
   echo "Deployment failed to become ready within the timeout period."
@@ -110,7 +110,7 @@ fi
 
 # Wait for the pods to be ready
 echo "Waiting for the pods to be ready..."
-if sudo kubectl wait --for=condition=ready pod -l app=hello-world --timeout=300s; then
+if sudo kubectl wait --for=condition=ready pod -l app=hello-world2 --timeout=300s; then
   echo "All pods are ready and running successfully."
 else
   echo "Pods failed to become ready within the timeout period."
@@ -118,7 +118,7 @@ else
 fi
 
 # Get the NodePort
-NODE_PORT=$(sudo kubectl get svc hello-world-service -o=jsonpath='{.spec.ports[0].nodePort}')
+NODE_PORT=$(sudo kubectl get svc hello-world2-service -o=jsonpath='{.spec.ports[0].nodePort}')
 NODE_IP=$(hostname -I | awk '{print $1}')
 
 # Curl the application
