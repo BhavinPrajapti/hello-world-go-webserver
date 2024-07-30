@@ -5,6 +5,19 @@ This section focuses on improving a Kubernetes deployment for a simple Go applic
 
 The application is a basic "Hello World" web server written in Go, with endpoints to handle liveness and readiness probes. This document outlines the improvements made to the deployment configuration to enhance reliability and scalability, as well as changes to the Go application for logging probe requests.
 
+## Improvements Made
+1.    **Increased Replicas:** Enhanced availability and redundancy by increasing the number of pod replicas
+2.    **Resource Requests and Limits:** Defined resource requests and limits to ensure optimal resource usage.
+3.    **Liveness and Readiness Probes:** Added health checks to ensure only healthy pods are available.
+4.    **Rolling Update Strategy:** Configured a rolling update strategy for zero downtime during deployments.
+5.    **Pod Disruption Budget:** Introduced a Pod Disruption Budget to maintain availability during node maintenance or voluntary disruptions.
+6.    **Logging for Probes:** Modified the Go application to log incoming liveness and readiness probe requests.
+
+
+
+
+
+
 ## Project Structure
 
 ```
