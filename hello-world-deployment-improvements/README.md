@@ -66,7 +66,7 @@ func main() {
 
 ## k8s Configuration Changes
 
-### `deployment.yaml`
+### deployment.yaml
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
