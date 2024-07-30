@@ -8,15 +8,16 @@ This project demonstrates a self-contained deployment of a simple Go web server 
 
 ```
 hello-world-webserver-main/
-├── Dockerfile           # Dockerfile for building the Docker image
-├── README.md            # Documentation file
+├── Dockerfile                                 # Dockerfile for building the Docker image
+├── hello-world-deployment-improvements        # Files for improving a Kubernetes deployment 
+├── README.md                                  # Documentation file
 ├── app/
-│   ├── main.go          # Go source code for the web server
-│   ├── go.mod           # The Go module file that manages dependencies
+│   ├── main.go                                # Go source code for the web server
+│   ├── go.mod                                 # The Go module file that manages dependencies
 ├── k8s/
-│   ├── deployment.yaml  # Kubernetes Deployment file
-│   └── service.yaml     # Kubernetes Service file
-├── installAndDeploy.sh  # Script to install K3s and deploy the application
+│   ├── deployment.yaml                        # Kubernetes Deployment file
+│   └── service.yaml                           # Kubernetes Service file
+├── installAndDeploy.sh                        # Script to install K3s and deploy the application
 ```
 
 ## Prerequisites
